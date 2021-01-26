@@ -1,5 +1,6 @@
 package com.dev.cinema.util;
 
+import com.dev.cinema.exceptions.DataBindingException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -13,7 +14,7 @@ public class HibernateUtil {
         try {
             return new Configuration().configure().buildSessionFactory();
         } catch (Exception e) {
-            throw new RuntimeException("Cant creating session factory", e);
+            throw new DataBindingException("Cant creating session factory", e);
         }
     }
 
