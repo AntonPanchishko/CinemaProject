@@ -9,9 +9,9 @@ import javax.persistence.Id;
 public class CinemaHall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    int capacity;
-    String description;
+    private Long id;
+    private int capacity;
+    private String description;
 
     public CinemaHall() {
     }
@@ -34,10 +34,8 @@ public class CinemaHall {
 
     @Override
     public String toString() {
-        return "CinemaHall{" +
-                "id=" + id +
-                ", capacity=" + capacity +
-                ", description='" + description + '\'' +
-                '}';
+        return "CinemaHall{"
+                + "id=" + id + ", capacity=" + capacity
+                + ", description='" + description + '\'' + '}';
     }
 }
