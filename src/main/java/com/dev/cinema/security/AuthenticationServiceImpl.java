@@ -25,8 +25,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (passwordHashFromDB.equals(hashOfInputPassword)) {
             return userByEmail;
         }
-        throw new AuthenticationException("Cant find user with such "
-                + email + " and password " + password);
+        throw new AuthenticationException("Cant find user with such email and password");
     }
 
     @Override
