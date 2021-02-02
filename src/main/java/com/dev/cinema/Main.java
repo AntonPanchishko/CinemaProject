@@ -14,7 +14,6 @@ public class Main {
     private static Injector injector = Injector.getInstance("com.dev.cinema");
 
     public static void main(String[] args) {
-
         MovieService movieService =
                 (MovieService) injector.getInstance(MovieService.class);
         Movie movie = new Movie();
@@ -37,7 +36,7 @@ public class Main {
         MovieSessionService movieSessionService =
                 (MovieSessionService) injector.getInstance(MovieSessionService.class);
         movieSessionService.add(movieSession);
-        movieSessionService.findAvailableSessions(1L, LocalDate
+        movieSessionService.findAvailableSessions(movie.getId(), LocalDate
                 .of(2021, 2, 2)).forEach(System.out::println);
     }
 }

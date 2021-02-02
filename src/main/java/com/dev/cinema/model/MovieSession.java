@@ -5,21 +5,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "movie_session")
 public class MovieSession {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
+    @JoinColumn(name = "movie_id")
     private Movie movie;
     @ManyToOne
+    @JoinColumn(name = "cinema_hall_id")
     private CinemaHall cinemaHall;
     private LocalDateTime sessionTime;
-
-    public MovieSession() {
-    }
 
     public Movie getMovie() {
         return movie;
@@ -43,5 +45,20 @@ public class MovieSession {
 
     public void setSessionTime(LocalDateTime sessionTime) {
         this.sessionTime = sessionTime;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "MovieSession{" + "id=" + id + ", movie=" + movie
+                + ", cinemaHall=" + cinemaHall + ", sessionTime="
+                + sessionTime + '}';
     }
 }
