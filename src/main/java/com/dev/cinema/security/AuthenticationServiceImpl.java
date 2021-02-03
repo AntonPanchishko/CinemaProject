@@ -4,14 +4,15 @@ import com.dev.cinema.exceptions.AuthenticationException;
 import com.dev.cinema.lib.Inject;
 import com.dev.cinema.lib.Service;
 import com.dev.cinema.model.User;
+import com.dev.cinema.service.ShoppingCartService;
 import com.dev.cinema.service.UserService;
 import com.dev.cinema.util.HashUtil;
 import java.util.Optional;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    @Inject
-    private UserService userService;
+    @Inject private UserService userService;
+    @Inject private ShoppingCartService shoppingCartService;
 
     @Override
     public User login(String email, String password) throws AuthenticationException {
@@ -19,7 +20,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (optionalUser.isEmpty() || !HashUtil.getHashPassword(password,
                 optionalUser.get().getSalt())
                 .equals(optionalUser.get().getPassword())) {
-            throw new AuthenticationException("Can't find user with such email " + email);
+            throw new AuthenticationException("Can't find a user with such email ");
         }
         return optionalUser.get();
     }
@@ -30,6 +31,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         newUser.setEmail(email);
         newUser.setPassword(password);
         userService.add(newUser);
+        shoppingCartService.registerNewShoppingCart(newUser);
         return newUser;
     }
 }
