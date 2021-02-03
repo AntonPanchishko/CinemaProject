@@ -56,27 +56,16 @@ public class Main {
         ShoppingCartService shoppingCartService =
                 (ShoppingCartService) injector
                         .getInstance(ShoppingCartService.class);
+        User userForTest = null;
         try {
-            shoppingCartService.getByUser(authenticationService
-                    .login("SomeEmail@mail.com",
-                            "SomePassword"));
+            userForTest = authenticationService
+                    .login("SomeEmail@mail.com", "SomePassword");
         } catch (AuthenticationException e) {
             e.printStackTrace();
         }
-        try {
-            shoppingCartService.clear(shoppingCartService
-                    .getByUser(authenticationService
-                            .login("SomeEmail@mail.com",
-                                    "SomePassword")));
-        } catch (AuthenticationException e) {
-            e.printStackTrace();
-        }
-        try {
-            shoppingCartService.addSession(movieSession, authenticationService
-                    .login("SomeEmail@mail.com",
-                            "SomePassword"));
-        } catch (AuthenticationException e) {
-            e.printStackTrace();
-        }
+        shoppingCartService.getByUser(userForTest);
+        shoppingCartService.clear(shoppingCartService
+                .getByUser(userForTest));
+        shoppingCartService.addSession(movieSession, userForTest);
     }
 }

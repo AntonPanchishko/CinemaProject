@@ -13,9 +13,12 @@ import com.dev.cinema.service.ShoppingCartService;
 
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
-    @Inject private MovieSessionDao movieSessionDao;
-    @Inject private ShoppingCartDao shoppingCartDao;
-    @Inject private TicketDao ticketDao;
+    @Inject
+    private MovieSessionDao movieSessionDao;
+    @Inject
+    private ShoppingCartDao shoppingCartDao;
+    @Inject
+    private TicketDao ticketDao;
 
     @Override
     public void addSession(MovieSession movieSession, User user) {
