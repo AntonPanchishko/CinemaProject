@@ -71,5 +71,12 @@ public class Main {
         } catch (AuthenticationException e) {
             e.printStackTrace();
         }
+        try {
+            shoppingCartService.addSession(movieSession, authenticationService
+                    .login("SomeEmail@mail.com",
+                            "SomePassword"));
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
     }
 }
