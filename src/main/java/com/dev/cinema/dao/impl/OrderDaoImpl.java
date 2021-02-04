@@ -6,10 +6,10 @@ import com.dev.cinema.lib.Dao;
 import com.dev.cinema.model.Order;
 import com.dev.cinema.model.User;
 import com.dev.cinema.util.HibernateUtil;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import java.util.List;
 
 @Dao
 public class OrderDaoImpl implements OrderDao {
@@ -39,9 +39,9 @@ public class OrderDaoImpl implements OrderDao {
     public List<Order> getOrdersHistory(User user) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query<Order> query = session
-                    .createQuery("FROM Order o " +
-                            "LEFT JOIN FETCH o.tickets " +
-                            "WHERE o.user = :user", Order.class);
+                    .createQuery("FROM Order o "
+                            + "LEFT JOIN FETCH o.tickets "
+                            + "WHERE o.user = :user", Order.class);
             query.setParameter("user", user);
             return query.getResultList();
         } catch (Exception e) {
