@@ -24,7 +24,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         ticket.setUser(user);
         ticket.setMovieSession(movieSession);
         ShoppingCart shoppingCartByUser = shoppingCartDao.getByUser(user);
-        List<Ticket> tickets = shoppingCartByUser.getTicketList();
+        List<Ticket> tickets = shoppingCartByUser.getTickets();
         ticketDao.add(ticket);
         tickets.add(ticket);
         shoppingCartDao.update(shoppingCartByUser);
@@ -44,7 +44,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void clear(ShoppingCart shoppingCart) {
-        shoppingCart.getTicketList().clear();
-        shoppingCartDao.update(getByUser(shoppingCart.getUser()));
+        shoppingCart.getTickets().clear();
+        shoppingCartDao.update(shoppingCart);
     }
 }
