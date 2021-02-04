@@ -11,8 +11,10 @@ import java.util.Optional;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    @Inject private UserService userService;
-    @Inject private ShoppingCartService shoppingCartService;
+    @Inject
+    private UserService userService;
+    @Inject
+    private ShoppingCartService shoppingCartService;
 
     @Override
     public User login(String email, String password) throws AuthenticationException {
