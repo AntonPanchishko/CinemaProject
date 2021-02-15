@@ -1,13 +1,11 @@
 package com.dev.cinema.model.dto.response;
 
-import com.dev.cinema.model.CinemaHall;
-import com.dev.cinema.model.Movie;
 import java.time.LocalDateTime;
 
 public class MovieSessionResponseDto {
     private Long id;
-    private Movie movie;
-    private CinemaHall cinemaHall;
+    private String movieTitle;
+    private int cinemaHallCapacity;
     private LocalDateTime sessionTime;
 
     public Long getId() {
@@ -18,20 +16,20 @@ public class MovieSessionResponseDto {
         this.id = id;
     }
 
-    public Movie getMovie() {
-        return movie;
+    public String getMovieTitle() {
+        return movieTitle;
     }
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
+    public void setMovieTitle(String movieTitle) {
+        this.movieTitle = movieTitle;
     }
 
-    public CinemaHall getCinemaHall() {
-        return cinemaHall;
+    public int getCinemaHallCapacity() {
+        return cinemaHallCapacity;
     }
 
-    public void setCinemaHall(CinemaHall cinemaHall) {
-        this.cinemaHall = cinemaHall;
+    public void setCinemaHallCapacity(int cinemaHallCapacity) {
+        this.cinemaHallCapacity = cinemaHallCapacity;
     }
 
     public LocalDateTime getSessionTime() {

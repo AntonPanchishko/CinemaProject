@@ -54,7 +54,7 @@ public class CinemaHallDaoImpl implements CinemaHallDao {
     }
 
     @Override
-    public Optional<CinemaHall> get(Long cinemaHallId) {
+    public Optional<CinemaHall> getById(Long cinemaHallId) {
         try (Session session = sessionFactory.openSession()) {
             return Optional.ofNullable(session.get(CinemaHall.class, cinemaHallId));
         } catch (Exception e) {

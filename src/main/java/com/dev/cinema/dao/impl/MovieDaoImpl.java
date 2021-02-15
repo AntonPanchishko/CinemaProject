@@ -54,7 +54,7 @@ public class MovieDaoImpl implements MovieDao {
     }
 
     @Override
-    public Optional<Movie> get(Long movieId) {
+    public Optional<Movie> getById(Long movieId) {
         try (Session session = sessionFactory.openSession()) {
             return Optional.ofNullable(session.get(Movie.class, movieId));
         } catch (Exception e) {

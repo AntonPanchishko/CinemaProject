@@ -14,5 +14,5 @@ public interface MovieSessionDao {
 
     void delete(Long id);
 
-    Optional<MovieSession> get(Long id);
+    Optional<MovieSession> getById(Long id);
 }
