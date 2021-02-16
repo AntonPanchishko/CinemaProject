@@ -62,7 +62,7 @@ public class UserDaoImpl implements UserDao {
         try (Session session = sessionFactory.openSession()) {
             return Optional.ofNullable(session.get(User.class, id));
         } catch (Exception e) {
-            throw new DataBindingException("Can't find entity by id " + id, e);
+            throw new DataBindingException("Can't find user by id " + id, e);
         }
     }
 }

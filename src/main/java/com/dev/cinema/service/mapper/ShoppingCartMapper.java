@@ -12,7 +12,7 @@ public class ShoppingCartMapper {
         ShoppingCartResponseDto shoppingCartResponseDto = new ShoppingCartResponseDto();
         shoppingCartResponseDto.setId(shoppingCart.getId());
         shoppingCartResponseDto
-                .setTicketsId(shoppingCart
+                .setTicketIds(shoppingCart
                         .getTickets()
                         .stream()
                         .map(Ticket::getId)

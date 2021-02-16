@@ -13,7 +13,7 @@ public class OrderMapper {
         orderResponseDto.setId(order.getId());
         orderResponseDto.setDate(order.getOrderDate().toString());
         orderResponseDto.setEmail(order.getUser().getEmail());
-        orderResponseDto.setTicketsId(order.getTickets()
+        orderResponseDto.setTicketIds(order.getTickets()
                 .stream()
                 .map(Ticket::getId)
                 .collect(Collectors.toList()));
