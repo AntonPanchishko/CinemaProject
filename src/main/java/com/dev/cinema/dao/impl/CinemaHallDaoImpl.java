@@ -4,6 +4,7 @@ import com.dev.cinema.dao.CinemaHallDao;
 import com.dev.cinema.exceptions.DataBindingException;
 import com.dev.cinema.model.CinemaHall;
 import java.util.List;
+import java.util.Optional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -49,6 +50,15 @@ public class CinemaHallDaoImpl implements CinemaHallDao {
             return movieQuery.getResultList();
         } catch (Exception e) {
             throw new DataBindingException("Can't get all Cinema Halls from db", e);
+        }
+    }
+
+    @Override
+    public Optional<CinemaHall> getById(Long cinemaHallId) {
+        try (Session session = sessionFactory.openSession()) {
+            return Optional.ofNullable(session.get(CinemaHall.class, cinemaHallId));
+        } catch (Exception e) {
+            throw new DataBindingException("Can't find entity by id " + cinemaHallId, e);
         }
     }
 }

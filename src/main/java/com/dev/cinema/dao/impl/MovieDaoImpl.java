@@ -4,6 +4,7 @@ import com.dev.cinema.dao.MovieDao;
 import com.dev.cinema.exceptions.DataBindingException;
 import com.dev.cinema.model.Movie;
 import java.util.List;
+import java.util.Optional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -49,6 +50,15 @@ public class MovieDaoImpl implements MovieDao {
             return getAllMoviesQuery.getResultList();
         } catch (Exception e) {
             throw new DataBindingException("Can't get all movies from db", e);
+        }
+    }
+
+    @Override
+    public Optional<Movie> getById(Long movieId) {
+        try (Session session = sessionFactory.openSession()) {
+            return Optional.ofNullable(session.get(Movie.class, movieId));
+        } catch (Exception e) {
+            throw new DataBindingException("Can't find entity by id " + movieId, e);
         }
     }
 }
