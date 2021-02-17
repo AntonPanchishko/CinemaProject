@@ -3,9 +3,9 @@ package com.dev.cinema.service.mapper;
 import com.dev.cinema.model.CinemaHall;
 import com.dev.cinema.model.dto.request.CinemaHallRequestDto;
 import com.dev.cinema.model.dto.response.CinemaHallResponseDto;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class CinemaHallMapper {
     public CinemaHall fromDtoToObject(CinemaHallRequestDto cinemaHallRequestDto) {
         CinemaHall cinemaHall = new CinemaHall();

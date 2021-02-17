@@ -4,9 +4,9 @@ import com.dev.cinema.model.Order;
 import com.dev.cinema.model.Ticket;
 import com.dev.cinema.model.dto.response.OrderResponseDto;
 import java.util.stream.Collectors;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class OrderMapper {
     public OrderResponseDto toDtoFromObject(Order order) {
         OrderResponseDto orderResponseDto = new OrderResponseDto();

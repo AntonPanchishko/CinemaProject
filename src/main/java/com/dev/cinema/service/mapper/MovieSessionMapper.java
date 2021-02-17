@@ -8,9 +8,9 @@ import com.dev.cinema.service.MovieService;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class MovieSessionMapper {
     private final MovieService movieService;
     private final CinemaHallService cinemaHallService;
