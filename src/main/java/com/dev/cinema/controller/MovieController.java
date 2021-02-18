@@ -4,10 +4,9 @@ import com.dev.cinema.model.dto.request.MovieRequestDto;
 import com.dev.cinema.model.dto.response.MovieResponseDto;
 import com.dev.cinema.service.MovieService;
 import com.dev.cinema.service.mapper.MovieMapper;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

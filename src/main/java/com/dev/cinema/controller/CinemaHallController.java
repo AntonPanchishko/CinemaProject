@@ -4,10 +4,9 @@ import com.dev.cinema.model.dto.request.CinemaHallRequestDto;
 import com.dev.cinema.model.dto.response.CinemaHallResponseDto;
 import com.dev.cinema.service.CinemaHallService;
 import com.dev.cinema.service.mapper.CinemaHallMapper;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
