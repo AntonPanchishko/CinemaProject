@@ -1,8 +1,13 @@
 package com.dev.cinema.model.dto.request;
 
+import jakarta.validation.constraints.NotNull;
+
 public class MovieSessionRequestDto {
+    @NotNull
     private Long movieId;
+    @NotNull
     private Long cinemaHallId;
+    @NotNull
     private String sessionTime;
 
     public String getSessionTime() {
