@@ -22,10 +22,9 @@ public class PasswordValidator implements ConstraintValidator<ValidPassword, Obj
         Object fieldMatchValue = new BeanWrapperImpl(user)
                 .getPropertyValue(fieldMatch);
 
-        if (fieldValue != null) {
-            return fieldValue.equals(fieldMatchValue);
-        } else {
-            return fieldMatchValue == null;
+        if (String.valueOf(fieldValue).isEmpty() || fieldValue == null) {
+            return false;
         }
+        return fieldValue.equals(fieldMatchValue);
     }
 }

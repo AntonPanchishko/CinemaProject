@@ -3,13 +3,7 @@ package com.dev.cinema.model.dto.request;
 import com.dev.cinema.annotaion.ValidPassword;
 import jakarta.validation.constraints.Min;
 
-@ValidPassword.List({
-        @ValidPassword(
-                field = "password",
-                fieldMatch = "repeatPassword",
-                message = "Passwords do not match!"
-        )
-})
+@ValidPassword(field = "password", fieldMatch = "repeatPassword")
 public class UserRequestDto {
 
     private String email;

@@ -39,9 +39,7 @@ public class OrderController {
         UserDetails details = (UserDetails) authentication.getPrincipal();
         String email = details.getUsername();
         return orderService
-                .getOrdersHistory(userService
-                        .findByEmail(email)
-                        .orElseThrow(() -> new RuntimeException("Incorrect login or password")))
+                .getOrdersHistory(userService.findByEmail(email).get())
                 .stream()
                 .map(orderMapper::toDtoFromObject)
                 .collect(Collectors.toList());
@@ -54,7 +52,6 @@ public class OrderController {
         return orderMapper.toDtoFromObject(orderService
                 .completeOrder(shoppingCartService
                         .getByUser(userService
-                        .findByEmail(email)
-                        .orElseThrow(() -> new RuntimeException("Incorrect login or password")))));
+                        .findByEmail(email).get())));
     }
 }
