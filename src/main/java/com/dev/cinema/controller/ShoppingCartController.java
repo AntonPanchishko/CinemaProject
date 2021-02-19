@@ -39,8 +39,7 @@ public class ShoppingCartController {
     public void addSession(Authentication authentication, @RequestParam Long movieSessionId) {
         UserDetails details = (UserDetails) authentication.getPrincipal();
         String email = details.getUsername();
-        User user = userService.findByEmail(email).orElseThrow(()
-                -> new RuntimeException("Incorrect email or password"));
+        User user = userService.findByEmail(email).get();
         MovieSession movieSession = movieSessionService.get(movieSessionId);
         shoppingCartService.addSession(movieSession, user);
     }

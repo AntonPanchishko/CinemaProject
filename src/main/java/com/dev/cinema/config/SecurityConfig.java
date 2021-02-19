@@ -19,12 +19,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/register")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
-                .and().formLogin()
+                .and()
+                .formLogin()
                 .permitAll()
                 .and()
-                .httpBasic();
+                .httpBasic()
+                .and()
+                .csrf()
+                .disable();
     }
 
     @Bean

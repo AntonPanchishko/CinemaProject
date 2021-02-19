@@ -5,7 +5,6 @@ import jakarta.validation.constraints.Min;
 
 @ValidPassword(field = "password", fieldMatch = "repeatPassword")
 public class UserRequestDto {
-
     private String email;
     @Min(6)
     private String password;
@@ -25,5 +24,13 @@ public class UserRequestDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 }
