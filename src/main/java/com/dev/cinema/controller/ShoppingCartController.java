@@ -49,8 +49,7 @@ public class ShoppingCartController {
     public ShoppingCartResponseDto getByUser(Authentication authentication) {
         UserDetails details = (UserDetails) authentication.getPrincipal();
         String email = details.getUsername();
-        User user = userService.findByEmail(email).orElseThrow(()
-                -> new RuntimeException("Incorrect email or password"));
+        User user = userService.findByEmail(email).get();
         return shoppingCartMapper.toDtoFromObject(shoppingCartService.getByUser(user));
     }
 }
