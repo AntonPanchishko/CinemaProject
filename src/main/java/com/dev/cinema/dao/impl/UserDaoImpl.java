@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,11 +45,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public Optional<User> findByEmail(String email) {
         try (Session session = sessionFactory.openSession()) {
-            Query<User> userQuery = session
-                    .createQuery("from User where email =:email",
-                    User.class);
-            userQuery.setParameter("email", email);
-            return userQuery.uniqueResultOptional();
+            return session.createQuery("SELECT u FROM User u"
+                    + " LEFT JOIN FETCH u.roles WHERE u.email = :email", User.class)
+                    .setParameter("email", email).uniqueResultOptional();
         } catch (Exception e) {
             throw new DataBindingException("Can't find user with such email"
                     + email, e);
@@ -60,7 +57,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public Optional<User> getById(Long id) {
         try (Session session = sessionFactory.openSession()) {
-            return Optional.ofNullable(session.get(User.class, id));
+            return session.createQuery("SELECT u FROM User u"
+                    + " LEFT JOIN FETCH u.roles WHERE u.id = :id", User.class)
+                    .setParameter("id", id).uniqueResultOptional();
         } catch (Exception e) {
             throw new DataBindingException("Can't find user by id " + id, e);
         }
