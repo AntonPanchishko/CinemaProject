@@ -29,11 +29,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .and()
-                .authorizeRequests()
+                .antMatchers("/register")
+                .authenticated()
                 .antMatchers(HttpMethod.POST,"/movies/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/movies/**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
                 .permitAll()
