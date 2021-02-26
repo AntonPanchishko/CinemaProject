@@ -1,4 +1,5 @@
-### Philharmonic Project 
+### Philharmonic Project
+
 A prototype of an online store for Philharmonia.
 Realized basic functionality for users and admins written in Java.
 Project was developed according to SOLID and REST principles with authorization and authentication.
@@ -11,9 +12,11 @@ Project was developed according to SOLID and REST principles with authorization 
 * Service layer(contains the business logic);
 * Layer with controllers.
 
-<h3><a href="https://prnt.sc/107ows9">A simple UML diagram describing relationships between entities</a><h3>
+##### Entities diagram
 
-##### Clients can perform the following actions:    
+<img src= "https://raw.githubusercontent.com/AntonPanchishko/img/main/spring-011.png" alt = "fitness_booking_uml" width = "700" />
+
+##### Clients can perform the following actions:
 
 * register on the store's website;
 * log in;
@@ -30,6 +33,7 @@ Project was developed according to SOLID and REST principles with authorization 
 * Deleting orders, having access to its details
 
 ##### Technologies Used:
+
 * Java 8
 * Maven 3.1.1
 * Maven Checkstyle Plugin
@@ -40,11 +44,12 @@ Project was developed according to SOLID and REST principles with authorization 
 * MySQL RDBMS
 
 ##### Running the Project:
-To run the project on your local machine. 
-Clone this project into your local folder 
-Open the project in an IDE.
-Configure Tomcat Server. 
-Set up the MySQL DS. 
-Set up MySQL Workbench on your machine.
-Insert your own MySQL username and login in dbProperties in the ConnectionUtil class.
-Your MySQL server must be up and running when you launch the project.
+
+* Download and install the JDK.
+* Download and install servlet container (for example Apache Tomcat).
+* Download and install MySQL Server.
+
+Find file 'db.properties' in package 'resources' and change the parameters that are valid for you:
+    username: "username";
+    password: "password";
+Run the project.
