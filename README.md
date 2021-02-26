@@ -16,6 +16,7 @@ Project was developed according to SOLID and REST principles with authorization 
 
 <img src= "https://raw.githubusercontent.com/AntonPanchishko/img/main/spring-011.png" alt = "fitness_booking_uml" width = "700" />
 
+##### Clients can perform the following actions:
 
 * register on the store's website;
 * log in;
@@ -23,6 +24,15 @@ Project was developed according to SOLID and REST principles with authorization 
 * Creating orders
 * Viewing user's orders and its details
 * Viewing user's details and it's updating
+
+##### Admins in their turn can:
+
+* Creating, updating and deleting products
+* Creating, updating and deleting users
+* Managing users' roles
+* Deleting orders, having access to its details
+
+##### Technologies Used:
 
 * Java 8
 * Maven 3.1.1
@@ -40,4 +50,6 @@ Project was developed according to SOLID and REST principles with authorization 
 * Download and install MySQL Server.
 
 Find file 'db.properties' in package 'resources' and change the parameters that are valid for you:
-
+username: "username";
+password: "password";
+Run the project.
