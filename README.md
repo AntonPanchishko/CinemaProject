@@ -11,7 +11,7 @@ Project was developed according to SOLID and REST principles with authorization 
 * Service layer(contains the business logic);
 * Layer with controllers.
 
-##### <a href="https://prnt.sc/107ows9">A simple UML diagram describing relationships between entities</a>
+<h3><a href="https://prnt.sc/107ows9">A simple UML diagram describing relationships between entities</a><h3>
 
 ##### Clients can perform the following actions:    
 
