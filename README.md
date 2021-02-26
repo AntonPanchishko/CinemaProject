@@ -50,7 +50,8 @@ Project was developed according to SOLID and REST principles with authorization 
 * Download and install MySQL Server.
 
 Find file 'db.properties' in package 'resources' and change the parameters that are valid for you:
-  url;
+
   username: "username";
   password: "password";
+  
 Run the project.
